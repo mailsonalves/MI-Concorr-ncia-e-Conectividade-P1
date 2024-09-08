@@ -82,3 +82,10 @@ class Cliente:
             for voo in voos:
                 if voo.destino != destino_selecionado:
                     self._mostrar_detalhes_voo(voo)
+                    
+    def _mostrar_detalhes_voo(self, voo):
+        print(f'ID: {voo.id}')
+        print(f'Origem: {voo.origem}')
+        print(f'Destino: {voo.destino}')
+        print(f'Vagas disponíveis: {voo.vagas}')
+        print("-" * 40)
