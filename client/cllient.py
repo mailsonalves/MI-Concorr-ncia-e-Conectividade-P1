@@ -101,3 +101,18 @@ class Cliente:
                     print(f"Assento(s): {', '.join(passagem.assento) if passagem.assento else 'Nenhum assento alocado'}")
                 else:
                     print('Voo lotado')
+    
+        #  def verification(self):
+    #     while True:
+    #         try:
+    #             # Recebe dados do servidor
+    #             data = self._s.recv(1024)
+    #             if not data:
+    #                 print("Conexão perdida com o servidor.")
+    #                 break
+    #             else:
+    #                 print("Recebido do servidor:", data.decode())
+    #         except Exception as e:
+    #             print(f"Erro ao receber dados do servidor: {e}")
+    #             break
+    #         self._s.send(pickle.dump(''))
