@@ -32,3 +32,15 @@ class Cliente:
         except pickle.UnpicklingError:
             print("Erro ao desserializar os dados recebidos.")
             return None
+        
+    def _login(self):
+        print("Bem-vindo ao VENDEPASS, sua plataforma de reserva.")
+        email = input("Informe seu email: \n")
+        password = input("Informe sua senha: \n")
+        user = self.__request(100, {'username': email, 'password_user': password})
+        
+        if user:
+            print(f"Bem-vindo, {user.username}!")
+            self._selecionar_voo(user)
+        else:
+            print("Login falhou. Verifique suas credenciais e tente novamente.")
