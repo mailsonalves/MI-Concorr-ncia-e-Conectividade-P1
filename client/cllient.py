@@ -55,3 +55,30 @@ class Cliente:
             for voo in voos:
                 if voo.destino != destino_selecionado:
                     self._mostrar_detalhes_voo(voo)
+    
+    def _selecionar_voo(self, user: User):
+        all_trechos = self.__request(201, "")
+        for num, capital in enumerate(all_trechos):
+            print(f"[{num}] - {capital}")
+        
+        origem = input("Digite de onde você quer partir: \n")
+        
+        for num in range(len(all_trechos[origem])):
+            print(f'[{num}] - {all_trechos[origem][num].destino}')
+        destino = input("Digite para onde você quer ir: \n")
+
+        print(f'\nVoos a partir de [{origem}]:')
+        self._listar_voos(all_trechos[origem], destino)
+
+        id_voo = input('Selecione o ID do voo: \n')
+        self._confirmar_compra(user, all_trechos[origem], id_voo)
+
+        def _listar_voos(self, voos, destino_selecionado):
+            for voo in voos:
+                if voo.destino == destino_selecionado:
+                    self._mostrar_detalhes_voo(voo)
+            print("-" * 40)
+
+            for voo in voos:
+                if voo.destino != destino_selecionado:
+                    self._mostrar_detalhes_voo(voo)
