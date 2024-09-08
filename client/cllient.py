@@ -89,3 +89,15 @@ class Cliente:
         print(f'Destino: {voo.destino}')
         print(f'Vagas disponíveis: {voo.vagas}')
         print("-" * 40)
+    
+    def _confirmar_compra(self, user, voos, id_voo_selecionado):
+        for voo in voos:
+            if voo.id == id_voo_selecionado:
+                passagem = user.comprar_passagem(voo, 'A1', '78')
+                if passagem:
+                    print(f"ID do Voo: {passagem.id_voo}")
+                    print(f"ID do Passageiro: {passagem.id_passageiro}")
+                    print(f"CPF: {passagem.cpf}")
+                    print(f"Assento(s): {', '.join(passagem.assento) if passagem.assento else 'Nenhum assento alocado'}")
+                else:
+                    print('Voo lotado')
