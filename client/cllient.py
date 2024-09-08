@@ -44,3 +44,14 @@ class Cliente:
             self._selecionar_voo(user)
         else:
             print("Login falhou. Verifique suas credenciais e tente novamente.")
+    
+             
+    def _listar_voos(self, voos, destino_selecionado):
+            for voo in voos:
+                if voo.destino == destino_selecionado:
+                    self._mostrar_detalhes_voo(voo)
+            print("-" * 40)
+
+            for voo in voos:
+                if voo.destino != destino_selecionado:
+                    self._mostrar_detalhes_voo(voo)
