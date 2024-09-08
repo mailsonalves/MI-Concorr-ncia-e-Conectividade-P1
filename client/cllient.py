@@ -15,3 +15,20 @@ class Cliente:
     def start_client(self):
         self._s.connect((self._host, self._port))
         self._login()
+        
+    def __request(self, typeOperation, data):
+        data_serialized = pickle.dumps((typeOperation, data))
+        self._s.send(data_serialized)
+
+
+        response = self._s.recv(4096)
+        if not response:
+            return False
+
+        try:
+            # Tenta desserializar os dados
+            deserialized_data = pickle.loads(response)
+            return deserialized_data
+        except pickle.UnpicklingError:
+            print("Erro ao desserializar os dados recebidos.")
+            return None
