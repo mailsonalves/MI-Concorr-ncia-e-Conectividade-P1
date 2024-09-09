@@ -33,7 +33,7 @@ class User():
         if voo.disponibilidade == True:
             if voo.vagas[assento] == False:
                 passagem = Passagem(voo.id, self.id_user, cpf)
-                passagem.assento = assento
+                passagem.assento.append(assento)
                 return passagem
             else:
                 return 'Ocupado'
